@@ -1,5 +1,7 @@
 # My Dotfiles
 
+![Hackatime Badge](https://hackatime-badge.hackclub.com/U07J7SUMSKA/dotfiles)
+
 ## How to apply
 
 Use `stow -v .` to symlink these dotfiles to your home directory.
