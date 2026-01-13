@@ -52,3 +52,9 @@ Thanks to Hack Club to motivate me with their [Riceathon](https://riceathon.hack
 * https://wiki.hypr.land/Useful-Utilities/
 * https://wiki.hypr.land/Hypr-Ecosystem/
 * https://wiki.archlinux.org/title/List_of_applications
+
+## Show-Off Scripts:
+
+* `tty-clock`
+* `uwufetch`
+* `vis`
