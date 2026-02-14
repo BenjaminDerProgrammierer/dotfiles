@@ -58,3 +58,14 @@ Thanks to Hack Club to motivate me with their [Riceathon](https://riceathon.hack
 * `tty-clock`
 * `uwufetch` (`uwufetch && read`)
 * `vis`
+
+## Todo
+
+Config for: 
+kitty
+nautilus
+rofi
+firefox
+wlogout
+hyprpicker
+hyprshot
