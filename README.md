@@ -56,5 +56,5 @@ Thanks to Hack Club to motivate me with their [Riceathon](https://riceathon.hack
 ## Show-Off Scripts:
 
 * `tty-clock`
-* `uwufetch`
+* `uwufetch` (`uwufetch && read`)
 * `vis`
