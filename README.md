@@ -61,11 +61,8 @@ Thanks to Hack Club to motivate me with their [Riceathon](https://riceathon.hack
 
 ## Todo
 
-Config for: 
-kitty
-nautilus
+Config for:
 rofi
-firefox
 wlogout
 hyprpicker
 hyprshot
