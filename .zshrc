@@ -102,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias fastfetch="hyfetch"
 
 
 HISTFILE=~/.histfile
@@ -113,3 +114,4 @@ zstyle :compinstall filename '/home/benjamin-new/.zshrc'
 
 autoload -Uz compinit
 compinit
+fastfetch

@@ -66,3 +66,6 @@ rofi
 wlogout
 hyprpicker
 hyprshot
+matugen
+
+https://wiki.archlinux.org/title/NVIDIA_Optimus
