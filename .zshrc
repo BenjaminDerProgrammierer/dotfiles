@@ -110,7 +110,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd nomatch notify
 unsetopt beep extendedglob
-zstyle :compinstall filename '/home/benjamin-new/.zshrc'
+zstyle :compinstall filename '/home/benjamin/.zshrc'
 
 autoload -Uz compinit
 compinit
