@@ -20,7 +20,7 @@ alias passwordgen="openssl rand -base64 48 | tr -dc 'a-zA-Z0-9' | head -c 16"
 # pnpm
 export PNPM_HOME="/home/benjamin/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end

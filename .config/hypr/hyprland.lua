@@ -3,23 +3,81 @@
 ------------------
 ---- MONITORS ----
 ------------------
+local DISPLAY_CONF = "DUPLICATE" -- Options: "DUPLICATE", "EXTEND"
+
+local function monitor_update(monitor)
+    if DISPLAY_CONF == "DUPLICATE" then
+        hl.monitor({
+            output = "HDMI-A-1",
+            mirror = "eDP-1",
+        })
+
+        hl.monitor({
+            output = "eDP-1",
+            mode = "1920x1080@60",
+        })
+    else
+        hl.monitor({
+            output   = "eDP-1",
+            mode     = "1280x720@60"
+        })
+    end
+end
+
+local function monitor_mode_change()
+    if DISPLAY_CONF == "DUPLICATE" then
+        DISPLAY_CONF = "EXTEND"
+    else
+        DISPLAY_CONF = "DUPLICATE"
+    end
+
+    monitor_update()
+end
+
+hl.on("monitor.added", monitor_update)
+hl.on("monitor.removed", monitor_update)
+monitor_update(nil)
+
 
 hl.monitor({
     output   = "",
     mode     = "preferred",
     position = "auto",
-    scale    = "1",
+    scale    = 1,
 })
 
+if DISPLAY_CONF == "MAC-SAAL" then
+    -- Disable second monitor simulated by the Apple Monitor.
+    hl.monitor({
+        output   = "DP-1",
+        disabled = true,
+    })
+
+    -- Configure the Apple Monitor as the main display.
+    hl.monitor({
+        output   = "DP-2",
+        mode     = "3840x2160@60",
+        position = "0x0",
+        scale    = 1,
+    })
+
+    -- Configure the laptop display as a secondary display to the right of the Apple Monitor.
+    hl.monitor({
+        output   = "eDP-1",
+        mode     = "1920x1080@60",
+        position = "3840x540",
+        scale    = 1,
+    })
+end
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
-local terminal    = "kitty"
-local fileManager = "nautilus"
-local menu        = "wofi --show drun"
-local browser     = "firefox"
+local terminal          = "kitty"
+local fileManager       = "nautilus"
+local menu              = "wofi --show drun"
+local browser           = "firefox"
 local clipboard_manager = "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
 
@@ -66,9 +124,9 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 -- for security reasons
 
 hl.config({
-  ecosystem = {
-    enforce_permissions = true,
-  },
+    ecosystem = {
+        enforce_permissions = true,
+    },
 })
 
 -- hl.permission("/usr/(bin|local/bin)/grim", "screencopy", "allow")
@@ -227,6 +285,7 @@ hl.bind(mainMod .. " + CTRL + Return", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("wlogout"))
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("hyprpicker"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/Screenshots"))
+hl.bind(mainMod .. " + P", monitor_mode_change)
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + T", hl.dsp.window.float())
@@ -315,7 +374,7 @@ hl.window_rule({
 --     enabled = true
 --     mode = tilt
 --     threshold = 2
--- 
+--
 --     tilt {
 --         limit = 5000
 --         function = negative_quadratic

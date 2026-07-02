@@ -69,3 +69,9 @@ hyprshot
 matugen
 
 https://wiki.archlinux.org/title/NVIDIA_Optimus
+
+overlay workspaces
+zooom
+pseudotiling
+rofi für mehr
+https://github.com/SIMULATAN/dotfiles
